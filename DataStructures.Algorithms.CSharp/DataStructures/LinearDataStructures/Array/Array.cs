@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.Array
+namespace DataStructuresAlgorithms.CSharp.DataStructures.LinearDataStructures.Array
 {
     public class Array
     {
@@ -14,6 +14,7 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             items = new int[length];
         }
 
+        //Time: O(n)        
         public void Insert(int item)
         {
             ResizeIfRequired();      
@@ -21,12 +22,15 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             items[count++] = item;
         }
 
+        //Time: O(n)
         public void InsertAt(int item, int index)
         {
             if (index < 0 || index >= count)
             {
                 throw new IndexOutOfRangeException();
             }
+
+            ResizeIfRequired();
 
             for (int i = count - 1; i >= index; i--)
             {
@@ -52,6 +56,7 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             }
         }
 
+        //Time: O(n)
         public void RemoveAt(int index)
         {
             if (index < 0 || index >= count)
@@ -68,6 +73,7 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             count--;
         }
 
+        //Time: O(n)
         public int IndexOf(int item)
         {
             for (int i = 0; i < count; i++)
@@ -81,6 +87,7 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             return -1;
         }
 
+        //Time: O(n)
         public int Max()
         {
             int max = 0;
@@ -96,6 +103,7 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             return max;
         }
 
+        //Time: O(n^2)
         public Array Intersect(Array other)
         {
             var intersection = new Array(count);
@@ -111,6 +119,7 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             return intersection;
         }
 
+        //Time: O(n)
         public void Reverse()
         {
             int[] newItems = new int[count];
@@ -123,6 +132,7 @@ namespace DataStructures.Algorithms.CSharp.DataStructures.LinearDataStructures.A
             items = newItems;
         }
 
+        //Time: O(n)
         public void Print()
         {
             for (int i = 0; i < count; i++)
